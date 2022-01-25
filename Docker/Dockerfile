@@ -106,7 +106,9 @@ RUN git clone https://github.com/lh3/bwa.git && \
 
 
 
-RUN git clone https://github.com/sara-javadzadeh/ViFi.git
+#  RUN git clone https://github.com/sara-javadzadeh/ViFi.git
+ARG CACHEBUST=1
+RUN git clone https://github.com/brownmp/ViFi.git
 
 
 # RUN wget -q https://raw.githubusercontent.com/klarman-cell-observatory/cumulus/master/docker/monitor_script.sh -O $SRC/CTAT-VirusIntegrationFinder/WDL/monitor_script.sh
