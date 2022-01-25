@@ -1,0 +1,12 @@
+{
+        "ViFi.docker":"brownmp/vifi:devel",
+        "ViFi.left":"",
+        "ViFi.right":"",
+        "ViFi.Virus_Reference":"",
+        "ViFi.Human_Reference":"",
+        "ViFi.sample_id":"",
+        "ViFi.cpus":"10",
+        "ViFi.preemptible":"1",
+        "ViFi.Distance":"200"
+
+}
