@@ -28,7 +28,7 @@ task RunViFi {
 
         export REFERENCE_REPO=`pwd`/Virus_DB
         export AA_DATA_REPO=`pwd`/Human_DB
-        export VIFI_DIR="/usr/local/src/ViFi"
+        export VIFI_DIR="/usr/local/src/ViFi/ViFi"
 
         #~~~~~~~~~~~~~~~~~~~~~~~~
         # Untar the references  
