@@ -3,7 +3,7 @@ import argparse
 import tempfile,shutil
 
 
-human_genome_reference = "GRch38"
+human_genome_reference = "GRCh38"
 
 def parse_args():
     default_viral_reference_dir = os.environ['REFERENCE_REPO']
