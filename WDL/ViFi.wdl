@@ -56,7 +56,7 @@ task RunViFi {
                 --virus hpv \
                 -c ~{cpus} \
                 --threshold 0.020000 \s
-                -o /usr/local/src/output \
+                -o OUTPUT \
                 -p sample_id
         else 
         
@@ -69,7 +69,7 @@ task RunViFi {
                 --virus hpv \
                 -c ~{cpus} \
                 --threshold 0.020000 \
-                -o /usr/local/src/output \
+                -o OUTPUT \
                 -p sample_id
         fi
 
