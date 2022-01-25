@@ -55,7 +55,7 @@ task RunViFi {
                 -r $fastq2 \
                 --virus hpv \
                 -c ~{cpus} \
-                --threshold 0.020000 \s
+                --threshold 0.020000 \
                 -o OUTPUT \
                 -p sample_id
         else 

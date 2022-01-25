@@ -148,7 +148,11 @@ vlist = defaultdict(lambda: [], {})
 vreads = defaultdict(lambda: Set([]), {})
 
 for a in bamFile:
+        # print(caln)
         vlist[(a.qname, a.is_read1)].append(a)
+        # print(a.tid)
+        # print(hgrefs)
+        print(bamFile.getrname(a.tid))
         if a.tid == -1 or bamFile.getrname(a.tid) not in hgrefs:
                 if a.tid == -1:
                     continue
@@ -164,6 +168,11 @@ for a in bamFile:
             clist.append(a)
 if caln is not None and (a.pos > caln.pos + 300 or caln.tid != a.tid) and clean_genomic_cluster(clist, min_support):
         clusterList.append(clist)
+
+print(caln)
+print(clist)
+print(clusterList)
+
 
 clusterList.sort(lambda x, y: hg.interval(bamFile.getrname(x[0].tid), x[0].pos, x[-1].pos + x[-1].infer_query_length()) > hg.interval(bamFile.getrname(y[0].tid), y[0].pos, y[-1].pos + y[-1].infer_query_length()))
 

@@ -20,7 +20,10 @@ fi
 INPUT_NAME=`basename $INPUT_FASTA`
 
 #Build alignment/tree, use 4GB for alignment, via Docker
-docker run -v $INPUT_DIR/:/data/ -v $OUTPUT_DIR/:/output/ smirarab/pasta run_pasta.py  --max-mem-mb=120000 -d dna -j $PREFIX -i $INPUT_NAME  -o /output/ --merger=muscle
+docker pull smirarab/pasta
+echo docker run -v $INPUT_DIR/:/data/ -v $OUTPUT_DIR/:/output/ smirarab/pasta run_pasta.py  --max-mem-mb=120000 -d dna -j $PREFIX -i $INPUT_NAME  -o /output/ --merger=muscle
+
+#docker run -v $INPUT_DIR/:/data/ -v $OUTPUT_DIR/:/output/ smirarab/pasta run_pasta.py  --max-mem-mb=120000 -d dna -j $PREFIX -i $INPUT_NAME  -o /output/ --merger=muscle
 
 cd $OUTPUT_DIR
 
