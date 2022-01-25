@@ -50,7 +50,7 @@ task RunViFi {
             #~~~~~~~~~~~~~~~~~~~~~~~
             # run ViFi
             #~~~~~~~~~~~~~~~~~~~~~~~
-            python /usr/local/src/ViFi/scripts/run_vifi.py \
+            python /usr/local/src/ViFi/ViFi/scripts/run_vifi.py \
                 -f $fastq1 \
                 -r $fastq2 \
                 --virus hpv \
@@ -63,7 +63,7 @@ task RunViFi {
             #~~~~~~~~~~~~~~~~~~~~~~~
             # Run ViFi
             #~~~~~~~~~~~~~~~~~~~~~~~
-            python /usr/local/src/ViFi/scripts/run_vifi.py \
+            python /usr/local/src/ViFi/ViFi/scripts/run_vifi.py \
                 -f ~{fastq1} \
                 -r ~{fastq2} \
                 --virus hpv \
