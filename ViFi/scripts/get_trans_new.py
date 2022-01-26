@@ -144,8 +144,8 @@ for a in bamFile:
     unknown = False
     totalReads += 1
     if totalReads % 100000 == 0:
-      print clock(), totalReads, 'reads done: #(Trans reads) =', \
-        transReads, viralReads, a.qname, qname
+      print clock(), totalReads, 'reads done: #(Trans reads) =\n', \
+        "\ttransReads:\t",transReads, "\n\tviralReads:\t", viralReads, "\n\tunknownReads:\t", unknownReads, "\n\t\t", a.qname, qname
     len_q1ref = len(chrom_list['human'].intersection(q1ref))
     len_q2ref = len(chrom_list['human'].intersection(q2ref))
     if len_q1ref > 0 \
@@ -185,6 +185,7 @@ for a in bamFile:
            len([read for read in q2aligns if not read.is_unmapped and bamFile.references[read.tid] in chrom_list['human']])) > 0 and
           (len([read for read in q2aligns if read.is_unmapped]) + len([read for read in q1aligns if read.is_unmapped])) > 0):
         unknownReads += 1
+        print "unknownReads: ", unknownReads
         for b in q1aligns + q2aligns:
           seq = Counter(q1aligns[0].seq + q2aligns[0].seq)
           if 'N' in seq and seq['N'] >= 5:
