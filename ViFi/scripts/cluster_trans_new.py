@@ -192,7 +192,9 @@ for v in vreads:
                 vequal.append(vset)
                 vequaldict[v] = vset
 rangeFile.write('Chr,Min,Max,Split1,Split2\n')
-outFile.write('#chr\tminpos\tmaxpos\t#reads\t#forward\t#reverse\n')
+# outFile.write('#chr\tminpos\tmaxpos\t#reads\t#forward\t#reverse\n')
+outFile.write('#chr\tminpos\tmaxpos\t#reads\t#forward\t#reverse\t#Min\t#Max\t#Split1\t#Split2\n')
+
 frbin = defaultdict(lambda: 0, {})
 for x in range(21):
         for y in range(21):
@@ -251,7 +253,11 @@ for ci in range(len(clusterList)):
         vplist.sort(lambda x, y: y[1] - x[1])
         frbin[cs] += 1
         outFile.write("##==========================================================================================================================================================================================================================\n")
-        outFile.write('\t'.join(map(str, [bamFile.getrname(c[0].tid), c[0].pos, c[-1].pos + c[-1].infer_query_length(), len(Set([a.qname for a in c])), cs[0], cs[1]])) + '\n')
+        tmp  = "%d\t%d\t%d\t%d" % (m1, m2, s1, s2)
+        # print(len(vcount))
+        # for i in vcount:
+                # print "\t", i 
+        outFile.write('\t'.join(map(str, [bamFile.getrname(c[0].tid), c[0].pos, c[-1].pos + c[-1].infer_query_length(), len(Set([a.qname for a in c])), cs[0], cs[1]])) + tmp + '\n')
 
         for a in c:
                 outFile.write('##' + '\t'.join(map(str, [a.qname, bamFile.getrname(a.tid), a.pos, not a.is_reverse, a.is_read1])) + '\n')
@@ -262,4 +268,4 @@ for ci in range(len(clusterList)):
 outFile.close()
 bamFile.close()
 rangeFile.close()
-print len(clusterList)
+# print len(clusterList)

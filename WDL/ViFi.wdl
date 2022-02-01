@@ -56,8 +56,8 @@ task RunViFi {
                 --virus hpv \
                 -c ~{cpus} \
                 --threshold 0.020000 \
-                -o OUTPUT \
-                -p sample_id
+                -o `pwd`/OUTPUT \
+                -p ~{sample_id}
         else 
         
             #~~~~~~~~~~~~~~~~~~~~~~~
@@ -69,15 +69,18 @@ task RunViFi {
                 --virus hpv \
                 -c ~{cpus} \
                 --threshold 0.020000 \
-                -o OUTPUT \
-                -p sample_id
+                -o `pwd`/OUTPUT \
+                -p ~{sample_id}
         fi
+
+        tar -czf OUTPUT.tar.gz OUTPUT
 
     >>>
 
     output {
-        File output_clusters_txt_range="output/~{sample_id}.clusters.txt.range"
-        File output_clusters_txt = "output/~{sample_id}.clusters.txt"
+        File output_file="OUTPUT.tar.gz"
+        File output_clusters_txt_range="./OUTPUT/~{sample_id}.clusters.txt.range"
+        File output_clusters_txt = "./OUTPUT/~{sample_id}.clusters.txt"
     }
 
     runtime {
